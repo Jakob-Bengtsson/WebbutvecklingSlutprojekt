@@ -1,9 +1,3 @@
-/*Sätter padding och margin till noll på alla sidor*/
-*{
-	margin: 0;
-	padding: 0;
-}
-
 /*Lägger till fonten roboto*/
 @font-face{
 	font-family:roboto;
@@ -16,7 +10,162 @@
 	src: url(fonts/Roboto-Black.ttf);
 }
 
+/*Sätter padding och margin till noll på de element där det behövs*/
+body, ul{
+	margin: 0;
+	padding: 0;
+}
+
+/*Bakgrundsbilder hamnar på båda sidorna av av hemsidan på alla sidor förutom dom med id index eller formular */
+body:not(#index):not(#formular){
+	background: url("pictures/side.jpg"), url("pictures/side.jpg");
+	background-position: top left, top right; /*Gör så att bilderna hamnar på rätt position*/
+	background-size: 10% 1200px, 10% 1200px; /*Sätter bredden och höjden på bilderna*/
+	background-repeat: repeat-y, repeat-y; /*Gör så att dom repeteras i y-led*/
+}
+
+
+/*Stilen på texten för alla sidor*/
+
+
+/*Ändrar till rätt font på titlar, påverkar alla sidor*/
+h1, a, dt, thead, input[type=submit]{
+	font-family: robotoblack;
+}
+
+/*Ändrar till rätt font på vanlig text, påverkar alla sidor*/
+p, dd, tbody, label, figure{
+	font-family: roboto;
+	font-weight: 900; /*Ändrar tjockleken på fonten till fetare*/
+}
+
+/*Tar bort dekorationen på länkar och ändrar färgen på texten till svart*/
+a{
+	text-decoration: none;
+	color: black;
+}
+
+/*Tar bort prickarna före texten på listan*/
+ul {
+	list-style-type: none;
+}
+
+
+/*Global meny för alla sidor*/
+
+
+/*Ändrar bakgrundsfärgen på den globala menyn till grå och lägger en padding på 10px*/
+header > nav{
+	background-color: grey;
+	padding: 10px;
+}
+
+/*Gör så att texten hamnar i mitten av li och centerar texten*/
+header > nav ul{
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	font-size: 0px;
+}
+
+/*Gör så att alla li hamnar efter varandra och så att dom tar upp 23% på bredden var.*/
+header > nav li{
+	display: inline-block;
+	padding-right: 1%; /*Gör så att det blir ett avstånd med 1px till höger mellan li*/
+	padding-left: 1%;  /*Gör så att det blir ett avstånd med 1px till vänster mellan li*/
+	width: 23%;
+	vertical-align: middle;
+}
+
+/*Gör så att alla a hamnar efter varandra*/
+header > nav a{
+	display: inline-block;
+	width: 100%; /*Gör så att den tar upp 100% på bredden av sidan*/
+	line-height: 50px; /*Sätter höjden på texten 50px*/
+	font-size: 20px; /*Ändrar storleken på fonten till 20px*/
+	border-radius: 10px;
+}
+
+/*Gör så att om man inte har varigt inne på en sida så kommer den ha färgen #888888*/
+header > nav a:link{
+	background-color: #888888;
+}
+
+/*Gör så att om man har varit inne på en sida i den globala menyn så kommer den få färgen #aaaaaa*/
+header > nav a:visited{
+	background-color: #aaaaaa;
+}
+
+/*Gör så att om man har en sida i focus så ändras färgen till gul*/
+header > nav a:focus{
+	background-color: yellow;
+}
+
+/*Gör så att om man håller över knapparna så ändras färgen*/
+header > nav a:hover{
+	background-color: #c9c9c9;
+}
+
+/*Gör så att den sidan som är aktiv har en färgen #444444*/
+header > nav a:active{
+	background-color: #444444;
+}
+
+/*Gör så att bilden och texten hamnar på samma höjd*/
+header > nav img{
+	display: inline-block;
+    vertical-align: top;
+	height: 50px;
+}
+
+
+/*Lokalmeny - musikgenomaren.html, 80-talet.html, 90-talet.html, instrument.html, gitarr.html, trumpet.html*/
+
+
+/*Gör så att lokalmenyn hamnar i mitten och den har en padding på 10px*/
+footer > nav{
+	text-align: center;
+	padding: 10px;
+}
+
+/*Ändrar stilen på a*/
+footer > nav a{
+	display: inline-block;
+	width: 100%;
+	line-height: 50px;
+	background-color: #c9c9c9;
+	padding: 5px;
+	border-radius: 10px; /*Gör runda kanter med 10px*/
+}
+
+/*Gör så att li hamnar efter varandra och så att dom får ett mellanrum med 15px*/
+footer > nav li{
+	display: inline-block;
+	text-align: center;
+	width: 15%;
+	padding: 10px;
+}
+
+/*Gör så att den sidan man är inne på får en border med 2px som är svar*/
+footer > nav #current{
+	border: 2px solid black;
+}
+
+/*Ändrar så att bakgrundsfärgen är grå när man håller över a*/
+footer > nav a:hover{
+	background-color: grey;
+}
+
+
 /*#index - index.html*/
+
+
+/*Gör så att titeln hamnar på samma höjd som bilden och så att titeln och bilden hamnar på samma rad*/
+#index h1{
+	vertical-align: middle;
+	font-size: 100px; /*Storleken på texten förstoras med 100px*/
+	display: inline-block;
+}
 
 /*Gör så att header bilden har samma bredd som sidan, oberoende på hur bred sidan är*/
 #index .pictureheader{
@@ -30,8 +179,8 @@
 	padding: 4%;
 }
 
-/*Gör så att classen middle tar upp hela bredden på sidan och centreras*/
-#index .middle{
+/*Gör så att main tar upp hela bredden på sidan och centreras*/
+#index main{
 	display: block;
 	text-align: center;
 }
@@ -40,117 +189,29 @@
 #index h1{
 	vertical-align: middle;
 	font-size: 100px; /*Storleken på texten förstoras med 100px*/
-	font-family: roboto; /*Storleken på texten förstoras med 100px*/
 	display: inline-block;
 }
 
+/*Ändrar storleken på sidans slogan*/
+#index p{
+	font-size: 50px; /*Storleken på texten förstoras med 50px*/
+}
+
 /*Titeln och bilden hamnar på samma höjd och så att titeln och bilden hamnar på samma rad*/
-#index img{
+#index main > img{
     display: inline-block;
     vertical-align: middle;
 }
 
-#index a{
-	font-family: roboto;
-	font-size: 25px;
-	font-weight: 900; /*Gör så att fonten blir bredare*/
-	text-decoration: none; /*Tar bort sträcket under texten*/
-	background-color: brown;
-	
-	text-align: center; /*Gör så att texten hamnar i mitten av rutan*/
-	border-radius: 20px; /*Gör så att det blir runda kanter med storleken 20px*/
-	width: 500px;
-	display: inline-block; /*Gör så att listan hamnar efter varandra*/
-	line-height: 250px; /*Ändrar höjden på rutan*/
-	color: white;
-}
-
-/*När man håller över knappen så ändras bredden och höjden, färgen blir också mer genomskinlig */
-#index a:hover{
-	background-color: rgba(255,0,0,0.7);
-	width: 495px;
-	line-height: 245px;
-}
-
-#index ul{
-	list-style-type: none; /*Tar bort punkterna innan texten*/
-	text-align: center;
-	margin-right: auto; /*Gör så att rutan hamnar i mitten*/
-	margin-left: auto; /*Gör så att rutan hamnar i mitten*/
-	padding: 2%; /*Gör så att listan har en padding med 2%*/
-	text-decoration: none;
-	color: black;
-}
-
-/*Gör så att listan hamnar efter varandra på samma rad och har en padding på 10px*/
-#index li{
-	display: inline-block;
-	padding: 10px;
-}
-
-/*Bakgrundsbilder hamnar på båda sidorna av av hemsidan på alla sidor förutom dom med id index eller formular */
-body:not(#index):not(#formular){
-	background: url("pictures/side.jpg"), url("pictures/side.jpg");
-	background-position: top left, top right; /*Gör så att bilderna hamnar på rätt position*/
-	background-size: 10% 1200px, 10% 1200px; /*Sätter bredden och höjden på bilderna*/
-	background-repeat: repeat-y, repeat-y; /*Gör så att dom repeteras i y-led*/
-}
-
-/*Ändrar bakgrundsfärgen på topbaren till grå*/
-#top{
-	background-color: grey;
-	padding: 10px;
-}
-
-/*Gör så att texten hamnar i mitten av li och att den inte har någon dekoratiom*/
-#top ul{
-	list-style-type: none;
-	text-decoration: none;
-	margin-right: auto;
-	margin-left: auto;
-	text-align: center;
-	font-size: 0px;
-}
-
-/*Gör så att alla li hamnar efter varandra och så att dom tar upp 25% på bredden var.*/
-#top li{
-	display: inline-block;
-	width: 25%;
-	vertical-align: middle;
-}
-
-/*Gör så att alla med klassen topbar hamnar efter varandra*/
-#top .topbar{
-	display: inline-block;
-	width: 100%; /*Gör så att den tar upp 100% på bredden av sidan*/
-	line-height: 50px;
-	text-decoration: none;
-	color: black; /*Ändrar färgen till svart*/
-	font-family: robotoblack;
-	font-size: 20px;
-}
-
-/*Gör så att bilden och texten hamnar på samma höjd*/
-#top .topbar img{
-	display: inline-block;
-    vertical-align: top;
-	height: 50px;
-}
-
-/*Gör så att om man håller över knapparna så ändras färgen och det blir runda kanter med 10px*/
-#top .topbar:hover{
-	background-color: #c9c9c9;
-	border-radius: 10px;
-}
 
 /*#topplista - topplista.html*/
+
 
 /*Ändrar så att texten är centrerad och att den har en padding på 30px*/
 #topplista h1{
 	text-align: center;
 	padding: 30px;
 	font-size: 50px;
-	font-family: robotoblack;
 }
 
 #topplista table{
@@ -159,7 +220,7 @@ body:not(#index):not(#formular){
 	margin-left: auto;
 	text-align: left; /*Gör så att texten flyttas till vänster*/
 	background-color: #c9c9c9;
-	border-radius: 10px;
+	border-radius: 10px; /*Gör så att det blir runda kanter runt tabellen med 10px*/
 	border-collapse: collapse; /*Gör så att det bildas EN border runt tabellen*/
 }
 
@@ -167,17 +228,12 @@ body:not(#index):not(#formular){
 #topplista thead{
 	font-size: 35px;
 	padding: 1%;
-	font-weight: 900;
-	font-family: robotoblack;
-	
 }
 
-/*Ändrar stilen på texten i body och gör så att den får en padding med 1%*/
+/*Ändrar stilen på texten i tbody och gör så att den får en padding med 1%*/
 #topplista tbody{
 	font-size: 25px;
 	padding: 1%;
-	font-weight: 900;
-	font-family: roboto;
 }
 
 /*Gör så att th och td får en padding med 10px*/
@@ -218,7 +274,6 @@ body:not(#index):not(#formular){
 
 /*Ändrar stilen på knappen rösta*/
 #topplista #rosta{
-	text-decoration: none;
 	text-align: center;
 	line-height: 75px;
 	width: 200px;
@@ -227,9 +282,6 @@ body:not(#index):not(#formular){
 	margin-right: auto;
 	margin-left: auto;
 	border-radius: 20px;
-	
-	font-family: robotoblack;
-	color: black;
 }
 
 /*Ändrar stilen på knappen rösta när man håller över den*/
@@ -243,52 +295,45 @@ body:not(#index):not(#formular){
 	padding-top: 50px;
 }
 
-/*#formular - formular.html, tackforrosten.html*/
+
+/*#formular - formular.html*/
+
 
 /*Gör så att alla med id formular får en bild bakgrund*/
 #formular{
-	background: url("pictures/rosten.jpg");
-	background-position: top left;
+	background: url("pictures/rosten.jpg");  /*Länken till bilden*/
+	background-position: top left; /*Bestämmer bildens position*/
 	background-size: 100%;
 }
 
-/*Gör så att tabellen hamnar i mitten*/
-#formular table{
+/*Gör så att listan centreras och gör så att listan tar upp 50% på bredden av sidan*/
+#formular main form ul{
 	margin-right: auto;
 	margin-left: auto;
-	border-collapse: collapse;  /*Gör så att det bildas EN border runt tabellen*/
 	background-color: hsl(0,0%,80%);  /*Ändrar på färgen genom hue, saturation och lightness*/
 	border-radius: 10px;
+	border: 2px solid black;
 	margin-top: 50px;
-	
-}
-
-/*Ändrar på td med padding på 2ex*/
-#formular td{
-	padding: 2ex;
-	font-family: roboto;
-	font-weight: 900;
-}
-
-/*Gör så att all text i klassen col1 hamnar till höger*/
-#formular .col1{
-	text-align: right;
-}
-/*Gör så att all text i klassen colmid hamnar i mitten*/
-#formular .colmid{
+	width: 50%;
 	text-align: center;
 }
 
-/*Gör så att man inte kan ändra storleken på textarea*/
+/*Ändrar på li med padding på 2ex*/
+#formular main form li{
+	padding: 2ex;
+}
+
+/*Gör så att man inte kan ändra storleken på textarea och bestämmer storleken på rutan*/
 #formular textarea{
 	resize: none;
+	height: 40px;
+	width: 400px;
 }
 
 /*Ändrar stilen på titeln*/
 #formular h1{
-	font-family: robotoblack;
 	text-align: center;
-	padding: 2rem; /*Ändrar padding på titeln med 2rem*/
+	padding: 1rem; /*Ändrar padding på titeln med 1rem*/
 	font-size: 3em; /*Ändrar storleken på texten med 3em*/
 }
 
@@ -297,88 +342,12 @@ body:not(#index):not(#formular){
 	height: 60px;
 	width: 100px;
 	font-size: 18px;
-	font-family: robotoblack;
 	border-radius: 10px;
 }
 
-/*Gör så att alla ul hamnar i mitten*/
-#formular ul{
-	text-align: center;
-}
 
-/*Gör så att li hamnar efter varandra*/
-#formular li{
-	display: inline-block;
-	text-align: center;
-	width: 25%; /*Ändrar så att li har en bredd på 25% av sidan*/
-	padding: 10px;
-}
+/*#instrument - instrument.html, gitarr.html, trumpet.html, */
 
-/*Gör så att när man håller över a så blir den genomskinlig*/
-#formular a:hover{
-	background-color: rgba(255,0,0,0.7);
-}
-
-/*Ändrar stilen på a*/
-#formular a{
-	display: inline-block;
-	text-decoration: none;
-	width: 100%;
-	font-family: robotoblack;
-	color: black;
-	line-height: 50px; /*Gör så att man kan klicka på hela knappen*/
-	background-color: brown;
-	padding: 5px;
-	border-radius: 10px;
-}
-
-/*Gör så att bilden och texten hamnar på samma höjd och så att dom hamnar efter varandra*/
-#formular a img{
-	display: inline-block;
-	height: 50px;
-	vertical-align: top;
-	
-}
-
-
-/*Gör så att lokalmenyn hamnar i mitten och den har en padding på 10px*/
-.localmenu{
-	text-align: center;
-	padding: 10px;
-}
-
-/*Ändrar stilen på a*/
-.localmenu a{
-	display: inline-block;
-	text-decoration: none; /*Tar bort all dekoration under texten*/
-	width: 100%;
-	font-family: robotoblack;
-	color: black;
-	line-height: 50px;
-	background-color: #c9c9c9;
-	padding: 5px;
-	border-radius: 10px; /*Gör runda kanter med 10px*/
-}
-
-/*Gör så att li hamnar efter varandra och så att dom får ett mellanrum med 15px*/
-.localmenu li{
-	display: inline-block;
-	text-align: center;
-	width: 15%;
-	padding: 10px;
-}
-
-/*Gör så att den sidan man är inne på får en border med 2px som är svar*/
-.localmenu #current{
-	border: 2px solid black;
-}
-
-/*Ändrar så att bakgrundsfärgen är grå när man håller över a*/
-.localmenu a:hover{
-	background-color: grey;
-}
-
-/*#instrument - instrument.html, gitarr.html, trumpet.html, keyboard.html*/
 
 /*Delar upp sidan i flera olika columner*/
 #instrument #spaltarea{
@@ -393,15 +362,14 @@ body:not(#index):not(#formular){
 
 /*Ändrar på stilen i h1*/
 #instrument h1{
-	text-align: center; /*texten hamnar i mittlen*/
-	font-family: robotoblack;
+	text-align: center; /*texten hamnar i mitten*/
 	padding-top: 60px; /*Padding med 60 px på toppen*/
 	padding-bottom: 40px; /*Padding med 40 px på botten*/
 	font-size: 40px;
 }
 
-/*Gör så att id content tar upp en bredd på 60% av sidan och så att sidan hamnar i mitten*/
-#instrument #content{
+/*Gör så att main tar upp en bredd på 60% av sidan och så att sidan hamnar i mitten*/
+#instrument main{
 	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
@@ -409,19 +377,17 @@ body:not(#index):not(#formular){
 
 /*Ändrar stilen på texten på alla sidor med id instument*/
 #instrument p{
-	font-family: roboto;
-	font-weight: 900;
 	font-size: 20px;
 	padding-bottom: 20px; /*Gör så att det blir en padding med 20px på botten*/
 }
 
  /*Gör så att titeln och ljudspelaren hamnar på samma rad*/
-#instrument div h1{
+#instrument section h1{
 	display: inline-block;
 }
 
  /*Det centrerar titeln och ljudspelaren*/
-#instrument div{
+#instrument section{
 	text-align: center;
 }
 
@@ -439,13 +405,6 @@ body:not(#index):not(#formular){
 	border-radius: 15px;
 }
 
- /*Gör så att id middle har en bredd på 50% av sidan och att den hamnar i mitten*/
-#instrument #middle{
-	width: 50%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 /*Gör så att id bottom hamnar i mitten*/
 #instrument #bottom{
 	display: block;
@@ -457,14 +416,16 @@ body:not(#index):not(#formular){
 	
 }
 
-/*#musikgenomaren - musikgenomaren.html, 80-talet.html, 90-talet.html, 00-talet.html*/
+
+/*#musikgenomaren - musikgenomaren.html, 80-talet.html, 90-talet.html*/
+
 
 /*Delar upp sidan i två olika columner*/
 #musikgenomaren #spaltarea{
 	display: flex;
 }
 
-/*Den delar upp sidan i två olika kolumner*/
+/*Delar upp sidan i två olika kolumner*/
 #musikgenomaren .spalt2{
 	flex: 1;
 	margin: 10px;
@@ -473,7 +434,6 @@ body:not(#index):not(#formular){
 /*Ändrar på stilen i h1*/
 #musikgenomaren h1{
 	text-align: center;
-	font-family: robotoblack;
 	padding-top: 60px;
 	padding-bottom: 40px;
 	font-size: 40px;
@@ -481,8 +441,6 @@ body:not(#index):not(#formular){
 
 /*Ändrar stilen på texten på alla sidor med id instument*/
 #musikgenomaren p{
-	font-family: roboto;
-	font-weight: 900;
 	font-size: 20px;
 	padding-bottom: 20px;
 }
@@ -490,8 +448,6 @@ body:not(#index):not(#formular){
 /*Ändrar på stilen i dl*/
 #musikgenomaren dl{
 	display: inline-block;
-	font-family: roboto;	
-	font-weight: 900; /*Gör så att texten blir tjockare*/
 	font-size: 20px;
 	background-color: grey;
 	text-align: left; /*Texten blir vänster justerad*/
@@ -499,15 +455,9 @@ body:not(#index):not(#formular){
 	border-radius: 10px;
 }
 
-/*Ändrar fonten på dt till robotoblack*/
-#musikgenomaren dt{
-	font-family: robotoblack;
-}
-
 /*Centrerar texten inom vänstra kolumnen*/
 #musikgenomaren div{
 	text-align: center;
-	padding: 10px;
 }
 
 /*Gör så att dd hamnar 50px från vänster*/
@@ -525,12 +475,10 @@ body:not(#index):not(#formular){
 /*Ändrar på stilen i bildtexten*/
 #musikgenomaren figure{
 	text-align: center;
-	font-family: roboto;
-	font-weight: 900;
 }
 
 /*Ändrar på main till 60% av sidan*/
-#musikgenomaren #middle{
+#musikgenomaren main{
 	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
@@ -544,7 +492,6 @@ body:not(#index):not(#formular){
 	border-radius: 15px;
 	margin-left: auto;
 	margin-right: auto;
-	
 }
 
 /*Gör så att iframe tar upp en hel rad*/
@@ -554,6 +501,6 @@ body:not(#index):not(#formular){
 	margin-right: auto;
 	height: 500px;
 	width: 650px;
-
+	margin-bottom: 10px;
 }
 

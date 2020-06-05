@@ -8,92 +8,72 @@
 	</head>
 	<body id="formular">
 		<header>
-			<nav> <!--Navigationsmenyn för sidan-->
+			<nav> <!--Navigationsmenyn för sidan, där du kan byta mellan det andra sidorna-->
 				<ul> <!--Oordnad lista-->
 					<li>
-						<a href="../index.html"><img src="../pictures/logo.png" alt="Symbol"> Musikpalatset</a>  <!--Länk som ser ut som en knapp på sidan-->
+						<a href="../index.html"><img src="../pictures/logo.png" alt="Symbol"> Musikpalatset</a> <!--Länk som ser ut som en knapp på sidan-->
 					</li>
 					<li>
-						<a href="topplista.html">Tillbaka till topplistan</a>
+						<a href="../instrument/instrument.html">Intrument</a>
+					</li>
+					<li>
+						<a href="topplista.html">Topplista</a>
+					</li>
+					<li>
+						<a href="../musikgenomaren/musikgenomaren.html">Musik genom åren</a>
 					</li>
 				</ul>
 			</nav>
 		</header>
 		<main>
-			<form action="tackforrosten.html" method="post"> <!--Start av formuläret på hemsidan-->
-				<table>
-					<tbody>
-						<tr>
-							<td class="colmid" colspan="2">
-								<h1>Rösta till musiktopplistan!</h1> <!--Titeln för formuläret-->
-							</td>
-						</tr>
-						<tr>
-							<td class="col1">
-								<label for="fornamn">Ditt förnamn</label> <!--Label för ditt förnamn-->
-							</td>
-							<td>
-								<input id="fornamn" name="fornamn" type="text" pattern="[A-Za-z]{1,}" title="Använd bara bokstäver!" placeholder="Namn" required> <!--Där du kan skriva in ditt förnamn-->
-							</td>
-						</tr>
-						<tr>
-							<td class="col1">
-								<label for="efternamn">Ditt efternamn</label>
-							</td>
-							<td>
-								<input id="efternamn" name="efternamn" type="text" pattern="[A-Za-z]{1,}" title="Använd bara bokstäver!" placeholder="Efternamn" required>
-							</td>
-						</tr>
-						<tr>
-							<td class="colmid" colspan="2">
-								<p>Ålder</p>
-							</td>
-						</tr>
-						<tr>
-							<td class="col1">
-								<label for="0-20">0-20</label><br>
-								<label for="21-40">21-40</label><br>
-								<label for="41-60">41-60</label><br>
-								<label for="61+">61+</label>
-							</td>
-							<td>
-								<input type="radio" id="0-20" name="alder" value="0-20" required><br>
-								<input type="radio" id="21-40" name="alder" value="21-40" required><br>
-								<input type="radio" id="41-60" name="alder" value="41-60" required><br>
-								<input type="radio" id="61+" name="alder" value="61+" required>
-							</td>
-						</tr>
-						<tr>
-							<td class="col1">
-								<label for="titel">Titel</label>
-							</td>
-							<td>
-								<input id="titel" name="titel" type="text" placeholder="Låt" required>
-							</td>
-						</tr>
-						<tr>
-							<td class="col1">
-								<label for="artist">Artist</label>
-							</td>
-							<td>
-								<input id="artist" name="artist" type="text" placeholder="Artist/Grupp" required>
-							</td>
-						</tr>
-						<tr>
-							<td class="col1">
-								<label for="varfor">Varför gillar du denna låten?</label>
-							</td>
-							<td>
-								<textarea id="varfor" name="varfor" placeholder="Anledning till att du valde låten" cols="40" rows="3"></textarea> <!--Ruta för att skriva in en text-->
-							</td>
-						</tr>
-						<tr>
-							<td class="colmid" colspan="2">
-								<input id="submit" type="submit" value="Rösta!"> <!--Input av typen submit, där du lämnar in formuläret-->
-							</td>
-						</tr>
-					</tbody>
-				</table>
+			<form action="topplista.html" method="post"> <!--Start av formuläret på hemsidan-->
+				<ul>
+					<li>
+						<h1>Rösta till musiktopplistan!</h1> <!--Titeln för formuläret-->
+					</li>
+					<li>
+						<label for="fornamn">Ditt förnamn</label> <!--Label för ditt förnamn-->
+						<input id="fornamn" name="fornamn" type="text" pattern="[A-Za-z]{1,}" title="Använd bara bokstäver!" placeholder="Namn" required> <!--Där du kan skriva in ditt förnamn-->
+					</li>
+					<li>
+						<label for="efternamn">Ditt efternamn</label>
+						<input id="efternamn" name="efternamn" type="text" pattern="[A-Za-z]{1,}" title="Använd bara bokstäver!" placeholder="Efternamn" required>
+					</li>
+					<li>
+						<p>Ålder</p>
+						<label for="0-20">0-20</label>
+						<input type="radio" id="0-20" name="alder" value="0-20" required><br>
+						<label for="21-40">21-40</label>
+						<input type="radio" id="21-40" name="alder" value="21-40" required><br>
+						<label for="41-60">41-60</label>
+						<input type="radio" id="41-60" name="alder" value="41-60" required><br>
+						<label for="61+">61+</label>
+						<input type="radio" id="61+" name="alder" value="61+" required>
+					</li>
+					<li>
+						<label for="titel">Titel</label>
+						<input id="titel" name="titel" type="text" placeholder="Låt" required>
+					</li>
+					<li>
+						<label for="artist">Artist</label>
+						<input id="artist" name="artist" type="text" placeholder="Artist/Grupp" required>
+					</li>
+					<li>
+						<label for="varfor">Varför gillar du denna låten?</label>
+						<textarea id="varfor" name="varfor" placeholder="Anledning till att du valde låten"></textarea> <!--Ruta för att skriva in en text-->
+					</li>
+					<li>
+						<label for="nyhetsbrev">Vill du få nyhetsbrev?</label>
+						<input id="nyhetsbrev" name="nyhetsbrev" type="checkbox">
+					</li>
+					<li>
+						<label for="losenord">Lösenord</label>
+						<input id="losenord" name="losenord" type="password"> <!--Ruta för att skriva in ett lösenord-->
+					</li>
+					<li>
+						<input id="submit" type="submit" value="Rösta!"> <!--Input av typen submit, där du lämnar in formuläret-->
+					</li>
+				</ul>
 			</form>
 		</main>
 	</body>
